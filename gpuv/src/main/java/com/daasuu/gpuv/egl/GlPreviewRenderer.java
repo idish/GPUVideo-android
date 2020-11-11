@@ -59,7 +59,7 @@ public class GlPreviewRenderer extends GlFrameBufferObjectRenderer implements Su
         this.glView = glView;
         this.glView.setEGLConfigChooser(new GlConfigChooser(false));
         this.glView.setEGLContextFactory(new GlContextFactory());
-        this.glView.setRenderer(this);
+//        this.glView.setRenderer(this);
         this.glView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
 
 

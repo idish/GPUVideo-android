@@ -42,7 +42,7 @@ public class GPUPlayerRenderer extends GlFrameBufferObjectRenderer implements Su
 
     private SimpleExoPlayer simpleExoPlayer;
 
-    GPUPlayerRenderer(GPUPlayerView glPreview) {
+    public GPUPlayerRenderer(GPUPlayerView glPreview) {
         super();
         Matrix.setIdentityM(STMatrix, 0);
         this.glPreview = glPreview;

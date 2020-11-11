@@ -11,13 +11,15 @@ import java.util.Queue;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import jp.co.cyberagent.android.gpuimage.GLTextureView;
+
 import static android.opengl.GLES20.GL_COLOR_BUFFER_BIT;
 import static android.opengl.GLES20.GL_DEPTH_BUFFER_BIT;
 import static android.opengl.GLES20.GL_FRAMEBUFFER;
 
 
 
-public abstract class GlFrameBufferObjectRenderer implements GLSurfaceView.Renderer {
+public abstract class GlFrameBufferObjectRenderer implements GLTextureView.Renderer {
 
     private GlFramebufferObject framebufferObject;
     private GlFilter normalShader;

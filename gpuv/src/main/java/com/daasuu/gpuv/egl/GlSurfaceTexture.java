@@ -6,7 +6,7 @@ import android.graphics.SurfaceTexture;
 
 public class GlSurfaceTexture implements SurfaceTexture.OnFrameAvailableListener {
 
-    private SurfaceTexture surfaceTexture;
+    public SurfaceTexture surfaceTexture;
     private SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener;
 
     public GlSurfaceTexture(final int texName) {
