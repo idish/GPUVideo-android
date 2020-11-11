@@ -6,9 +6,9 @@ public class GlHueFilter extends GlFilter {
 
     private static final String HUE_FRAGMENT_SHADER = "" +
             "precision highp float;\n" +
-            " varying vec2 vTextureCoord;\n" +
+            " varying highp vec2 vTextureCoord;\n" +
             "\n" +
-            " uniform lowp sampler2D sTexture;\n" +
+            " uniform sampler2D sTexture;\n" +
             "uniform mediump float hueAdjust;\n" +
             "const highp vec4 kRGBToYPrime = vec4 (0.299, 0.587, 0.114, 0.0);\n" +
             "const highp vec4 kRGBToI = vec4 (0.595716, -0.274453, -0.321263, 0.0);\n" +
@@ -53,10 +53,11 @@ public class GlHueFilter extends GlFilter {
         super(DEFAULT_VERTEX_SHADER, HUE_FRAGMENT_SHADER);
     }
 
-    private float hue = 90f;
+    private float hue = (float) Math.toRadians(90);
 
     public void setHue(float hue) {
-        this.hue = hue;
+        this.hue = (float) Math.toRadians(hue);
+//        float hueAdjust = (this.hue % 360.0f) * (float) Math.PI / 180.0f;
     }
 
 
