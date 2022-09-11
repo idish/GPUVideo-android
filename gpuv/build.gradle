@@ -6,8 +6,6 @@ android {
     defaultConfig {
         minSdkVersion COMPILE_MIN_SDK_VERSION as int
         targetSdkVersion COMPILE_SDK_VERSION as int
-        versionCode VERSION_CODE as int
-        versionName VERSION_NAME
 
     }
 
@@ -23,8 +21,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.google.android.exoplayer:exoplayer-core:2.12.1'
-    implementation 'jp.co.cyberagent.android:gpuimage:2.0.4'
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.1'
+    implementation 'jp.co.cyberagent.android:gpuimage:2.1.0'
 
 
 }
