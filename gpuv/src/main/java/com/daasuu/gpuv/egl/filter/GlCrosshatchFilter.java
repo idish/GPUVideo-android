@@ -80,6 +80,5 @@ public class GlCrosshatchFilter extends GlFilter {
         if (crossHatchSpacing < singlePixelSpacing) {
             this.crossHatchSpacing = singlePixelSpacing;
         }
-
     }
 }
