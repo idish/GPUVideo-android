@@ -4,6 +4,7 @@ package com.daasuu.gpuv.composer;
 import android.media.MediaCodec;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
+import android.util.Log;
 import android.util.Size;
 import com.daasuu.gpuv.egl.filter.GlFilter;
 
@@ -140,14 +141,27 @@ class VideoComposer {
             encoderSurface = null;
         }
         if (decoder != null) {
-            if (decoderStarted) decoder.stop();
+            if (decoderStarted) stopQuietly(decoder);
             decoder.release();
             decoder = null;
         }
         if (encoder != null) {
-            if (encoderStarted) encoder.stop();
+            if (encoderStarted) stopQuietly(encoder);
             encoder.release();
             encoder = null;
+        }
+    }
+
+    /**
+     * A codec that hit an error while composing (e.g. reclaimed by the system, or out of
+     * resources) throws IllegalStateException from stop(). release() still frees it, so don't let
+     * that stop() turn the original failure into a crash on the composer thread.
+     */
+    private static void stopQuietly(MediaCodec codec) {
+        try {
+            codec.stop();
+        } catch (IllegalStateException e) {
+            Log.w(TAG, "Codec could not be stopped; releasing it anyway.", e);
         }
     }
 
